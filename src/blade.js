@@ -1,6 +1,8 @@
 const glob = require('glob');
 const bluebird = require('bluebird');
 
+import {JS_GLOBSTAR} from './constants';
+
 const globPromise = bluebird.promisify(glob);
 
 /**
@@ -10,5 +12,5 @@ const globPromise = bluebird.promisify(glob);
  * @returns {Promise<string[]>} Promise that resolves to an array containing all the blade file names.
  */
 export function getBladeSourceFileNames(bladeDirectory) {
-	return globPromise(bladeDirectory + '**/*.js');
+	return globPromise(bladeDirectory + JS_GLOBSTAR);
 }
