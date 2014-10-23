@@ -16,7 +16,7 @@ describe('Bladeset analyzer', () => {
 
 function* discoverAllBladesInABladeset(done) {
 	//Given.
-	const testBladesetDirectoryName = 'spec/resources/test-bladeset/';
+	const testBladesetDirectoryName = 'spec/resources/test-bladeset';
 	const expectedBladeNames = [
 		'spec/resources/test-bladeset/blades/test-blade'
 	];
@@ -31,7 +31,7 @@ function* discoverAllBladesInABladeset(done) {
 
 function* discoverAllBladessetSourceFiles(done) {
 	//Given.
-	const testBladesetDirectoryName = 'spec/resources/test-bladeset/';
+	const testBladesetDirectoryName = 'spec/resources/test-bladeset';
 	const expectedBladesetSourceFileNames = [
 		'spec/resources/test-bladeset/src/my/name/ABladesetClass.js'
 	];
