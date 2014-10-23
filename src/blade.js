@@ -4,10 +4,10 @@ const bluebird = require('bluebird');
 const globPromise = bluebird.promisify(glob);
 
 /**
- * Returns a Set containing all blade source files.
+ * Returns a Promise that resolves to an array containing all blade source files.
  *
- * @param   {} bladeDirectory - Fully qualified blade directory name.
- * @returns {Set<string>} Set containing all the blade file names.
+ * @param   {string} bladeDirectory - Blade directory name.
+ * @returns {Promise<string[]>} Promise that resolves to an array containing all the blade file names.
  */
 export function retrieveBladeSourceFileNames(bladeDirectory) {
 	return globPromise(bladeDirectory + '**/*.js');
