@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-import {retrieveBladeSourceFileNames} from '../src/blade';
+import {getBladeSourceFileNames} from '../src/blade';
 
 describe('Blade analyzer', () => {
 	it('discovers all source files in a blade.', (done) => {
@@ -12,7 +12,7 @@ describe('Blade analyzer', () => {
 		];
 
 		//When.
-		const bladeFileNamesPromise = retrieveBladeSourceFileNames(testBladeDirectoryName);
+		const bladeFileNamesPromise = getBladeSourceFileNames(testBladeDirectoryName);
 
 		//Then.
 		bladeFileNamesPromise
