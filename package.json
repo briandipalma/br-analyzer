@@ -4,7 +4,7 @@
   "description": "Analyzes a BR application and provides information on it",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,10 @@
   "homepage": "https://github.com/briandipalma/br-analyzer",
   "dependencies": {
     "bluebird": "^2.3.2",
-    "glob": "^4.0.6",
-    "systemjs": "^0.8.2"
+    "glob": "^4.0.6"
   },
   "devDependencies": {
-    "mocha": "^1.21.4"
+    "jasmine": "git://github.com/briandipalma/jasmine-npm",
+    "systemjs": "^0.9.3"
   }
 }
