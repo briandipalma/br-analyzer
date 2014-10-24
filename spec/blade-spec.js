@@ -2,6 +2,10 @@ const assert = require('assert');
 
 const {wrap} = require('awaitable');
 import {getBladeSourceFileNames} from '../src/blade';
+import {
+	testBladeDirectoryName,
+	expectedBladeFileNames
+} from './test-constants';
 
 describe('Blade analyzer', () => {
 	it('discovers all source files in a blade.', (done) => {
@@ -10,13 +14,6 @@ describe('Blade analyzer', () => {
 });
 
 function* discoverAllSourceFilesInABlade(done) {
-	//Given.
-	const testBladeDirectoryName = 'spec/resources/apps/testapp/test-bladeset/blades/test-blade';
-	const expectedBladeFileNames = [
-		'spec/resources/apps/testapp/test-bladeset/blades/test-blade/src/my/name/space/MyClass.js',
-		'spec/resources/apps/testapp/test-bladeset/blades/test-blade/src/my/name/space/sub/MySubClass.js'
-	];
-
 	//When.
 	const bladeFileNames = yield getBladeSourceFileNames(testBladeDirectoryName);
 
