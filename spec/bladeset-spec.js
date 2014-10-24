@@ -15,44 +15,32 @@ import {
 } from './test-constants';
 
 describe('Bladeset analyzer', () => {
-	it('discovers all blades in a bladeset.', (done) => {
-		wrap(discoverAllBladesInABladeset)(done);
-	});
+	it('discovers all blades in a bladeset.', wrap(function* (done) {
+		//When.
+		const bladeFileNames = yield getBladesetBladeNames(testBladesetDirectoryName);
 
-	it('discovers all bladeset source files.', (done) => {
-		wrap(discoverAllBladessetSourceFiles)(done);
-	});
+		//Then.
+		assert.deepEqual(bladeFileNames, expectedBladeNames);
+		done();
+	}));
 
-	it('discovers all bladeset and blades source files.', (done) => {
-		wrap(discoverAllBladessetAndBladesSourceFiles)(done);
-	});
+	it('discovers all bladeset source files.', wrap(function* (done) {
+		//When.
+		const bladesetSourceFileNames = yield getBladesetSourceFileNames(testBladesetDirectoryName);
+
+		//Then.
+		assert.deepEqual(bladesetSourceFileNames, expectedBladesetSourceFileNames);
+		done();
+	}));
+
+	it('discovers all bladeset and blades source files.', wrap(function* (done) {
+		//When.
+		const bladesetAndBladesSourceFileNames = yield getBladesetAndBladesSourceFileNames(testBladesetDirectoryName);
+
+		//Then.
+		assert.deepEqual(bladesetAndBladesSourceFileNames, expectedBladesetAndBladesSourceFileNames);
+		done();
+	}));
 });
 
-function* discoverAllBladesInABladeset(done) {
-	//When.
-	const bladeFileNames = yield getBladesetBladeNames(testBladesetDirectoryName);
-
-	//Then.
-	assert.deepEqual(bladeFileNames, expectedBladeNames);
-	done();
-}
-
-function* discoverAllBladessetSourceFiles(done) {
-	//When.
-	const bladesetSourceFileNames = yield getBladesetSourceFileNames(testBladesetDirectoryName);
-
-	//Then.
-	assert.deepEqual(bladesetSourceFileNames, expectedBladesetSourceFileNames);
-	done();
-}
-
-function* discoverAllBladessetAndBladesSourceFiles(done) {
-	//When.
-	const bladesetAndBladesSourceFileNames = yield getBladesetAndBladesSourceFileNames(testBladesetDirectoryName);
-
-	//Then.
-	assert.deepEqual(bladesetAndBladesSourceFileNames, expectedBladesetAndBladesSourceFileNames);
-	done();
-}
-
-export const forceToBeParsedAsES6 = true;
+export const forceToBeParsedAsES6Module = true;
