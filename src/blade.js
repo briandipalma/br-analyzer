@@ -1,4 +1,4 @@
-import {JS_GLOBSTAR} from './constants';
+import {JS_SRC_DIR_GLOB} from './constants';
 import {globPromise} from './utils/utilities';
 
 /**
@@ -8,5 +8,5 @@ import {globPromise} from './utils/utilities';
  * @returns {Promise<string[]>} Promise that resolves to an array containing all the blade file names.
  */
 export function getBladeSourceFileNames(bladeDirectory) {
-	return globPromise(bladeDirectory + JS_GLOBSTAR);
+	return globPromise(bladeDirectory + JS_SRC_DIR_GLOB);
 }
