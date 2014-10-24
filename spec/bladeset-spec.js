@@ -2,7 +2,11 @@ const assert = require('assert');
 
 const bluebird = require('bluebird');
 
-import {getBladesetBladeNames, getBladesetSourceFileNames} from '../src/bladeset';
+import {
+	getBladesetBladeNames,
+	getBladesetSourceFileNames,
+	getBladesetAndBladesSourceFileNames
+} from '../src/bladeset';
 
 describe('Bladeset analyzer', () => {
 	it('discovers all blades in a bladeset.', (done) => {
@@ -11,6 +15,10 @@ describe('Bladeset analyzer', () => {
 
 	it('discovers all bladeset source files.', (done) => {
 		bluebird.coroutine(discoverAllBladessetSourceFiles)(done);
+	});
+
+	it('discovers all bladeset and blades source files.', (done) => {
+		bluebird.coroutine(discoverAllBladessetAndBladesSourceFiles)(done);
 	});
 });
 
@@ -43,3 +51,22 @@ function* discoverAllBladessetSourceFiles(done) {
 	assert.deepEqual(bladesetSourceFileNames, expectedBladesetSourceFileNames);
 	done();
 }
+
+function* discoverAllBladessetAndBladesSourceFiles(done) {
+	//Given.
+	const testBladesetDirectoryName = 'spec/resources/test-bladeset';
+	const expectedBladesetAndBladesSourceFileNames = [
+		'spec/resources/test-bladeset/src/my/name/ABladesetClass.js',
+		'spec/resources/test-bladeset/blades/test-blade/src/my/name/space/MyClass.js',
+		'spec/resources/test-bladeset/blades/test-blade/src/my/name/space/sub/MySubClass.js'
+	];
+
+	//When.
+	const bladesetAndBladesSourceFileNames = yield getBladesetAndBladesSourceFileNames(testBladesetDirectoryName);
+
+	//Then.
+	assert.deepEqual(bladesetAndBladesSourceFileNames, expectedBladesetAndBladesSourceFileNames);
+	done();
+}
+
+export const forceToBeParsedAsES6 = true;
