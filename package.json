@@ -18,7 +18,8 @@
   "homepage": "https://github.com/briandipalma/br-analyzer",
   "dependencies": {
     "bluebird": "^2.3.2",
-    "glob": "^4.0.6"
+    "glob": "^4.0.6",
+    "native-promisify": "^1.0.0"
   },
   "devDependencies": {
     "jasmine": "git://github.com/briandipalma/jasmine-npm",

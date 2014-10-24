@@ -1,13 +1,11 @@
-const glob = require('glob');
 const bluebird = require('bluebird');
 
 import {
 	JS_SRC_DIR_GLOB,
 	BLADES_DIRECTORY_GLOB
 } from './constants';
+import {globPromise} from './utils/utilities';
 import {getBladeSourceFileNames} from './blade';
-
-const globPromise = bluebird.promisify(glob);
 
 /**
  * Returns a Promise that resolves to an array containing all bladeset blade names.

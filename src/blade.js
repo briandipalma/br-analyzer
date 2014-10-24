@@ -1,9 +1,5 @@
-const glob = require('glob');
-const bluebird = require('bluebird');
-
 import {JS_GLOBSTAR} from './constants';
-
-const globPromise = bluebird.promisify(glob);
+import {globPromise} from './utils/utilities';
 
 /**
  * Returns a Promise that resolves to an array containing all blade source files.
