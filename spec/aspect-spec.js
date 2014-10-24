@@ -12,9 +12,9 @@ describe('Aspect analyzer', () => {
 
 function* discoverAllSourceFilesInAnAspect(done) {
 	//Given.
-	const testAspectDirectoryName = 'spec/resources/testapp/test-aspect';
+	const testAspectDirectoryName = 'spec/resources/apps/testapp/test-aspect';
 	const expectedAspectFileNames = [
-		'spec/resources/testapp/test-aspect/src/my/AspectClass.js'
+		'spec/resources/apps/testapp/test-aspect/src/my/AspectClass.js'
 	];
 
 	//When.
