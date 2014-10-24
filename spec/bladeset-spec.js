@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const bluebird = require('bluebird');
+const {wrap} = require('awaitable');
 
 import {
 	getBladesetBladeNames,
@@ -10,15 +10,15 @@ import {
 
 describe('Bladeset analyzer', () => {
 	it('discovers all blades in a bladeset.', (done) => {
-		bluebird.coroutine(discoverAllBladesInABladeset)(done);
+		wrap(discoverAllBladesInABladeset)(done);
 	});
 
 	it('discovers all bladeset source files.', (done) => {
-		bluebird.coroutine(discoverAllBladessetSourceFiles)(done);
+		wrap(discoverAllBladessetSourceFiles)(done);
 	});
 
 	it('discovers all bladeset and blades source files.', (done) => {
-		bluebird.coroutine(discoverAllBladessetAndBladesSourceFiles)(done);
+		wrap(discoverAllBladessetAndBladesSourceFiles)(done);
 	});
 });
 

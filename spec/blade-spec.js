@@ -1,11 +1,11 @@
 const assert = require('assert');
 
-const bluebird = require('bluebird');
+const {wrap} = require('awaitable');
 import {getBladeSourceFileNames} from '../src/blade';
 
 describe('Blade analyzer', () => {
 	it('discovers all source files in a blade.', (done) => {
-		bluebird.coroutine(discoverAllSourceFilesInABlade)(done);
+		wrap(discoverAllSourceFilesInABlade)(done);
 	});
 });
 

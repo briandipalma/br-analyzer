@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/briandipalma/br-analyzer",
   "dependencies": {
+    "awaitable": "^1.0.2",
     "bluebird": "^2.3.2",
     "glob": "^4.0.6",
     "native-promisify": "^1.0.0"

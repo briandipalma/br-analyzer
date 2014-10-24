@@ -1,4 +1,4 @@
-const bluebird = require('bluebird');
+const co = require('awaitable');
 
 import {
 	JS_SRC_DIR_GLOB,
@@ -34,7 +34,7 @@ export function getBladesetSourceFileNames(bladesetDirectory) {
  * @returns {Promise<string[]>} Promise that resolves to an array containing all bladeset source file names.
  */
 export function getBladesetAndBladesSourceFileNames(bladesetDirectory) {
-	return bluebird.coroutine(function* () {
+	return co(function* () {
 		const bladesetInfo = [getBladesetBladeNames(bladesetDirectory), getBladesetSourceFileNames(bladesetDirectory)];
 		const [bladeFileNames, bladesetSourceFileNames] = yield Promise.all(bladesetInfo);
 
@@ -42,5 +42,5 @@ export function getBladesetAndBladesSourceFileNames(bladesetDirectory) {
 		const bladesSourceFilesNames = yield Promise.all(bladePromises);
 
 		return bladesetSourceFileNames.concat(...bladesSourceFilesNames);
-	})();
+	});
 }
