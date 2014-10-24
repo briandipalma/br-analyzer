@@ -11,10 +11,10 @@ describe('Blade analyzer', () => {
 
 function* discoverAllSourceFilesInABlade(done) {
 	//Given.
-	const testBladeDirectoryName = 'spec/resources/test-bladeset/blades/test-blade';
+	const testBladeDirectoryName = 'spec/resources/testapp/test-bladeset/blades/test-blade';
 	const expectedBladeFileNames = [
-		'spec/resources/test-bladeset/blades/test-blade/src/my/name/space/MyClass.js',
-		'spec/resources/test-bladeset/blades/test-blade/src/my/name/space/sub/MySubClass.js'
+		'spec/resources/testapp/test-bladeset/blades/test-blade/src/my/name/space/MyClass.js',
+		'spec/resources/testapp/test-bladeset/blades/test-blade/src/my/name/space/sub/MySubClass.js'
 	];
 
 	//When.

@@ -8,6 +8,8 @@ import {
 	getBladesetAndBladesSourceFileNames
 } from '../src/bladeset';
 
+const testBladesetDirectoryName = 'spec/resources/testapp/test-bladeset';
+
 describe('Bladeset analyzer', () => {
 	it('discovers all blades in a bladeset.', (done) => {
 		wrap(discoverAllBladesInABladeset)(done);
@@ -24,9 +26,8 @@ describe('Bladeset analyzer', () => {
 
 function* discoverAllBladesInABladeset(done) {
 	//Given.
-	const testBladesetDirectoryName = 'spec/resources/test-bladeset';
 	const expectedBladeNames = [
-		'spec/resources/test-bladeset/blades/test-blade'
+		'spec/resources/testapp/test-bladeset/blades/test-blade'
 	];
 
 	//When.
@@ -39,9 +40,8 @@ function* discoverAllBladesInABladeset(done) {
 
 function* discoverAllBladessetSourceFiles(done) {
 	//Given.
-	const testBladesetDirectoryName = 'spec/resources/test-bladeset';
 	const expectedBladesetSourceFileNames = [
-		'spec/resources/test-bladeset/src/my/name/ABladesetClass.js'
+		'spec/resources/testapp/test-bladeset/src/my/name/ABladesetClass.js'
 	];
 
 	//When.
@@ -54,11 +54,10 @@ function* discoverAllBladessetSourceFiles(done) {
 
 function* discoverAllBladessetAndBladesSourceFiles(done) {
 	//Given.
-	const testBladesetDirectoryName = 'spec/resources/test-bladeset';
 	const expectedBladesetAndBladesSourceFileNames = [
-		'spec/resources/test-bladeset/src/my/name/ABladesetClass.js',
-		'spec/resources/test-bladeset/blades/test-blade/src/my/name/space/MyClass.js',
-		'spec/resources/test-bladeset/blades/test-blade/src/my/name/space/sub/MySubClass.js'
+		'spec/resources/testapp/test-bladeset/src/my/name/ABladesetClass.js',
+		'spec/resources/testapp/test-bladeset/blades/test-blade/src/my/name/space/MyClass.js',
+		'spec/resources/testapp/test-bladeset/blades/test-blade/src/my/name/space/sub/MySubClass.js'
 	];
 
 	//When.
