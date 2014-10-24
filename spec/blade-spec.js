@@ -8,16 +8,12 @@ import {
 } from './test-constants';
 
 describe('Blade analyzer', () => {
-	it('discovers all source files in a blade.', (done) => {
-		wrap(discoverAllSourceFilesInABlade)(done);
-	});
+	it('discovers all source files in a blade.', wrap(function* (done) {
+		//When.
+		const bladeFileNames = yield getBladeSourceFileNames(testBladeDirectoryName);
+
+		//Then.
+		assert.deepEqual(bladeFileNames, expectedBladeFileNames);
+		done();
+	}));
 });
-
-function* discoverAllSourceFilesInABlade(done) {
-	//When.
-	const bladeFileNames = yield getBladeSourceFileNames(testBladeDirectoryName);
-
-	//Then.
-	assert.deepEqual(bladeFileNames, expectedBladeFileNames);
-	done();
-}

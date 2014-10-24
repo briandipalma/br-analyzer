@@ -9,16 +9,12 @@ import {
 } from './test-constants';
 
 describe('Aspect analyzer', () => {
-	it('discovers all source files in an aspect.', (done) => {
-		wrap(discoverAllSourceFilesInAnAspect)(done);
-	});
+	it('discovers all source files in an aspect.', wrap(function* (done) {
+		//When.
+		const aspectFileNames = yield getAspectSourceFileNames(testAspectDirectoryName);
+
+		//Then.
+		assert.deepEqual(aspectFileNames, expectedAspectFileNames);
+		done();
+	}));
 });
-
-function* discoverAllSourceFilesInAnAspect(done) {
-	//When.
-	const aspectFileNames = yield getAspectSourceFileNames(testAspectDirectoryName);
-
-	//Then.
-	assert.deepEqual(aspectFileNames, expectedAspectFileNames);
-	done();
-}
