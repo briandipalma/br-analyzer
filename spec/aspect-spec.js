@@ -9,12 +9,11 @@ import {
 } from './test-constants';
 
 describe('Aspect analyzer', () => {
-	it('discovers all source files in an aspect.', wrap(function* (done) {
+	it('discovers all source files in an aspect.', wrap(function* () {
 		//When.
 		const aspectFileNames = yield getAspectSourceFileNames(testAspectDirectoryName);
 
 		//Then.
 		assert.deepEqual(aspectFileNames, expectedAspectFileNames);
-		done();
 	}));
 });
