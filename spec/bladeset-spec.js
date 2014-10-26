@@ -15,31 +15,28 @@ import {
 } from './test-constants';
 
 describe('Bladeset analyzer', () => {
-	it('discovers all blades in a bladeset.', wrap(function* (done) {
+	it('discovers all blades in a bladeset.', wrap(function* () {
 		//When.
 		const bladeFileNames = yield getBladesetBladeNames(testBladesetDirectoryName);
 
 		//Then.
 		assert.deepEqual(bladeFileNames, expectedBladeNames);
-		done();
 	}));
 
-	it('discovers all bladeset source files.', wrap(function* (done) {
+	it('discovers all bladeset source files.', wrap(function* () {
 		//When.
 		const bladesetSourceFileNames = yield getBladesetSourceFileNames(testBladesetDirectoryName);
 
 		//Then.
 		assert.deepEqual(bladesetSourceFileNames, expectedBladesetSourceFileNames);
-		done();
 	}));
 
-	it('discovers all bladeset and blades source files.', wrap(function* (done) {
+	it('discovers all bladeset and blades source files.', wrap(function* () {
 		//When.
 		const bladesetAndBladesSourceFileNames = yield getBladesetAndBladesSourceFileNames(testBladesetDirectoryName);
 
 		//Then.
 		assert.deepEqual(bladesetAndBladesSourceFileNames, expectedBladesetAndBladesSourceFileNames);
-		done();
 	}));
 });
 
