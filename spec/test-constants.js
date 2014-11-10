@@ -28,5 +28,9 @@ export const expectedBladesetAndBladesSourceFileNames = [
  */
 export const testAspectDirectoryName = 'spec/resources/apps/testapp/test-aspect';
 export const expectedAspectFileNames = [
+	'spec/resources/apps/testapp/another-aspect',
+	'spec/resources/apps/testapp/test-aspect'
+];
+export const expectedAspectSourceFileNames = [
 	'spec/resources/apps/testapp/test-aspect/src/my/AspectClass.js'
 ];
