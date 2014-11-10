@@ -39,3 +39,4 @@ export const expectedAspectSourceFileNames = [
  * Applications
  */
 export const appsDirectoryName = 'spec/resources/apps';
+export const testAppDirectoryName = 'spec/resources/apps/testapp';
