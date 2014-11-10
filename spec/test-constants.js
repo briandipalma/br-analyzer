@@ -34,3 +34,8 @@ export const expectedAspectFileNames = [
 export const expectedAspectSourceFileNames = [
 	'spec/resources/apps/testapp/test-aspect/src/my/AspectClass.js'
 ];
+
+/**
+ * Applications
+ */
+export const appsDirectoryName = 'spec/resources/apps';
